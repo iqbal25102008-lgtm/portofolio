@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan PKL Muhamad Iqbal Husein</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8dc;
+      color: #2b2b2b;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffcc00, #ffea70, #fff8dc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      top: -90px;
+      right: -90px;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255, 193, 7, 0.35);
+      bottom: -80px;
+      left: -60px;
+    }
+
+    .hero {
+      max-width: 850px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #2b2b2b;
+      color: #ffd500;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: #1f1f1f;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #333;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #1f1f1f;
+      color: #ffd500;
+    }
+
+    .btn-secondary {
+      border: 2px solid #1f1f1f;
+      color: #1f1f1f;
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(31, 31, 31, 0.94);
+      backdrop-filter: blur(8px);
+      padding: 14px 20px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffd500;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #d59b00;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-top: 8px;
+      color: #1f1f1f;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 22px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.10);
+      border: 1px solid rgba(255, 213, 0, 0.45);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .profile-list div {
+      background: #fff7bf;
+      border-left: 5px solid #ffcc00;
+      padding: 13px 16px;
+      border-radius: 12px;
+    }
+
+    .profile-list b {
+      display: inline-block;
+      min-width: 135px;
+      color: #222;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #1f1f1f, #3b3b3b);
+      color: white;
+    }
+
+    .highlight .section-title h2,
+    .highlight .section-title span {
+      color: #ffd500;
+    }
+
+    .highlight .card {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      border: 1px solid rgba(255, 213, 0, 0.45);
+      box-shadow: none;
+    }
+
+    .skill-card h3,
+    .card h3 {
+      margin-bottom: 12px;
+      color: #d59b00;
+      font-size: 22px;
+    }
+
+    .highlight .card h3 {
+      color: #ffd500;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 22px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 26px;
+      border-left: 4px solid #ffcc00;
+    }
+
+    .timeline-item h3 {
+      color: #1f1f1f;
+      margin-bottom: 5px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      height: 220px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ffe55c, #fff3a3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      color: #1f1f1f;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item .placeholder {
+      padding: 20px;
+    }
+
+    .conclusion {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #1f1f1f;
+      color: #ffd500;
+      text-align: center;
+      padding: 28px 20px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2,
+      .grid-3,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .profile-list b {
+        display: block;
+        min-width: 0;
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <div class="hero">
+      <span class="badge">LAPORAN PRAKTIK KERJA LAPANGAN</span>
+      <h1>Laporan PKL<br>Muhamad Iqbal Husein</h1>
+      <p>
+        Website laporan Praktik Kerja Lapangan yang berisi profil IDUKA,
+        latar belakang, biodata, pengalaman PKL, kompetensi, kesimpulan,
+        dan galeri kegiatan.
+      </p>
+      <div class="btn-group">
+        <a href="#profil" class="btn btn-primary">Lihat Laporan</a>
+        <a href="#galeri" class="btn btn-secondary">Lihat Galeri</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#profil">Profil IDUKA</a></li>
+      <li><a href="#latar">Latar Belakang</a></li>
+      <li><a href="#biodata">Biodata</a></li>
+      <li><a href="#pkl">Tentang PKL</a></li>
+      <li><a href="#kompetensi">Kompetensi</a></li>
+      <li><a href="#kesimpulan">Kesimpulan</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+    </ul>
+  </nav>
+
+  <section id="profil">
+    <div class="section-title">
+      <span>Profil IDUKA</span>
+      <h2>Tempat Pelaksanaan PKL</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>PT Harco Center Computer</h3>
+        <p>
+      CV Harco Center Computer menyediakan Service Laptop,Service Printer dan Service PC. CV Harco Center Computer juga Menjual berbagai macam aksesoris komputer, seperti RAM, Hardisk, SSD, VGA Card, dll. CV Harco Center Computer berlokasi di Jl. Kaliurang No.38, Lowokwaru, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141. CV Harco Center Computer Didirikan pada tahun 2005 dan telah Berdedikasi dalam Bidang Informasi Teknologi selama 18 Tahun.
+        </p>
+      </div>
+      <div class="card profile-list">
+        <div><b>Nama IDUKA</b> : PT Harco Center Computer</div>
+        <div><b>Alamat</b> : Jl. Kaliurang No.38, Lowokwaru, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141
+        <div><b>Bidang Usaha</b> :Service Laptop, Service Printer, Service PC, Penjualan Aksesoris Komputer</div>
+        <div><b>Pembimbing</b> : Machfud Sugiono
+        <div><b>Periode PKL</b> : Januari 02 2026 - Juni 30 2026
+      </div>
+    </div>
+  </section>
+
+  <section id="latar" class="highlight">
+    <div class="section-title">
+      <span>Latar Belakang</span>
+      <h2>Alasan Dilaksanakannya PKL</h2>
+    </div>
+    <div class="card">
+      <p>
+        Praktik Kerja Lapangan merupakan kegiatan pembelajaran yang bertujuan
+        untuk memberikan pengalaman langsung kepada siswa dalam dunia kerja.
+        Melalui kegiatan ini, siswa dapat menerapkan ilmu yang sudah dipelajari
+        di sekolah, mengenal budaya kerja, meningkatkan kedisiplinan, serta
+        memahami tanggung jawab dalam menyelesaikan tugas di lingkungan industri.
+      </p>
+      <br>
+      <p>
+        Kegiatan PKL juga membantu siswa mempersiapkan diri agar lebih siap
+        menghadapi dunia kerja setelah lulus. Dengan mengikuti PKL, siswa tidak
+        hanya belajar teori, tetapi juga mempraktikkan keterampilan secara nyata.
+      </p>
+    </div>
+  </section>
+
+  <section id="biodata">
+    <div class="section-title">
+      <span>Biodata</span>
+      <h2>Data Peserta PKL</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card profile-list">
+        <div><b>Nama</b> : Muhamad Iqbal Husein</div>
+        <div><b>Kelas</b> : XI TKJ B
+        <div><b>NIS</b> : 5784258266
+        <div><b>Sekolah</b> : SMK Negeri 8 Malang
+        <div><b>Jurusan</b> : Teknik Komputer dan Jaringan
+        <div><b>Alamat</b> : JL. Letjend S. Parman G6 No.A9
+      </div>
+      <div class="card">
+        <h3>Deskripsi Singkat</h3>
+        <p>
+          Saya adalah siswa SMK yang melaksanakan Praktik Kerja Lapangan untuk
+          meningkatkan kemampuan, pengalaman, dan wawasan dalam dunia kerja.
+          Selama PKL, saya belajar mengenai kedisiplinan, kerja sama, tanggung
+          jawab, serta keterampilan sesuai bidang keahlian.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pkl" class="highlight">
+    <div class="section-title">
+      <span>Tentang PKL</span>
+      <h2>Kegiatan Selama PKL</h2>
+    </div>
+    <div class="timeline">
+      <div class="card timeline-item">
+        <h3>Pengenalan Lingkungan Kerja</h3>
+        <p>Mengenal struktur organisasi, aturan kerja, alat yang digunakan, dan tugas yang akan dilakukan selama PKL.</p>
+      </div>
+      <div class="card timeline-item">
+        <h3>Pelaksanaan Tugas Harian</h3>
+        <p>Mengerjakan tugas sesuai arahan pembimbing, seperti input data, desain, perakitan, instalasi, dokumentasi, atau pekerjaan teknis lainnya.</p>
+      </div>
+      <div class="card timeline-item">
+        <h3>Evaluasi dan Dokumentasi</h3>
+        <p>Mencatat kegiatan harian, membuat laporan, serta mengevaluasi hasil pekerjaan agar lebih baik.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kompetensi">
+    <div class="section-title">
+      <span>Kompetensi</span>
+      <h2>Kemampuan yang Dikembangkan</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card skill-card">
+        <h3>Disiplin</h3>
+        <p>Membiasakan diri datang tepat waktu, mengikuti aturan, dan menyelesaikan tugas sesuai jadwal.</p>
+      </div>
+      <div class="card skill-card">
+        <h3>Kerja Sama</h3>
+        <p>Belajar bekerja dengan pembimbing, karyawan, dan teman dalam menyelesaikan pekerjaan.</p>
+      </div>
+      <div class="card skill-card">
+        <h3>Keterampilan Teknis</h3>
+        <p>Meningkatkan kemampuan sesuai jurusan, seperti komputer, jaringan, atau bidang lainnya.</p>
+      </div>
+      <div class="card skill-card">
+        <h3>Komunikasi</h3>
+        <p>Melatih cara berkomunikasi dengan sopan, jelas, dan sesuai situasi kerja.</p>
+      </div>
+      <div class="card skill-card">
+        <h3>Tanggung Jawab</h3>
+        <p>Memahami pentingnya menyelesaikan pekerjaan dengan teliti dan tidak asal-asalan, karena dunia kerja bukan tempat main tebak-tebakan.</p>
+      </div>
+      <div class="card skill-card">
+        <h3>Problem Solving</h3>
+        <p>Belajar mencari solusi saat menghadapi masalah dalam pekerjaan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kesimpulan" class="highlight">
+    <div class="section-title">
+      <span>Kesimpulan</span>
+      <h2>Hasil Akhir Kegiatan PKL</h2>
+    </div>
+    <div class="card conclusion">
+      <p>
+        Berdasarkan kegiatan PKL yang telah dilaksanakan, dapat disimpulkan
+        bahwa Praktik Kerja Lapangan memberikan banyak manfaat bagi Saya.
+        Kegiatan ini membantu Saya memahami dunia kerja secara langsung,
+        meningkatkan keterampilan, membentuk sikap disiplin, serta menambah
+        pengalaman yang berguna untuk masa depan.
+      </p>
+      <br>
+      <p>
+        Melalui PKL, Saya menjadi lebih siap menghadapi tantangan di dunia
+        industri dan mampu menerapkan ilmu yang telah dipelajari di sekolah.
+      </p>
+    </div>
+  </section>
+
+  <section id="galeri">
+    <div class="section-title">
+      <span>Galeri</span>
+      <h2>Dokumentasi Kegiatan PKL</h2>
+    </div>
+   <div class="gallery">
+  <div class="gallery-item">
+    <img src="kabelwifi.jpg" alt="Dokumentasi Kabel WiFi">
+  </div>
+
+  <div class="gallery-item">
+    <img src="laptop.jpg" alt="Dokumentasi Laptop">
+  </div>
+
+  <div class="gallery-item">
+    <img src="motherboard.jpg" alt="Dokumentasi Motherboard">
+  </div>
+
+  <div class="gallery-item">
+    <img src="printer.jpg" alt="Dokumentasi Printer">
+  </div>
+
+  <div class="gallery-item">
+    <img src="software.jpg" alt="Dokumentasi Software">
+  </div>
+
+  <div class="gallery-item">
+    <img src="ups.jpg" alt="Dokumentasi UPS">
+  </div>
+</div>
+  </section>
+
+  <footer>
+    <p>© 2026 Laporan PKL | Dibuat oleh Nama Kamu</p>
+  </footer>
+</body>
+</html>
