@@ -183,6 +183,22 @@
       align-items: start;
     }
 
+    .photo-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .photo-card img {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border: 4px solid #ffcc00;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -314,6 +330,11 @@
         min-width: 0;
         margin-bottom: 4px;
       }
+
+      .photo-card img {
+        width: 180px;
+        height: 230px;
+      }
     }
   </style>
 </head>
@@ -395,7 +416,7 @@
       <span>Biodata</span>
       <h2>Data Peserta PKL</h2>
     </div>
-    <div class="grid-2">
+    <div class="grid-3">
       <div class="card profile-list">
         <div><b>Nama</b> : Muhamad Iqbal Husein</div>
         <div><b>Kelas</b> : XI TKJ B
@@ -403,6 +424,9 @@
         <div><b>Sekolah</b> : SMK Negeri 8 Malang
         <div><b>Jurusan</b> : Teknik Komputer dan Jaringan
         <div><b>Alamat</b> : JL. Letjend S. Parman G6 No.A9
+      </div>
+      <div class="card photo-card">
+        <img src="biodata.jpg" alt="Foto Siswa">
       </div>
       <div class="card">
         <h3>Deskripsi Singkat</h3>
